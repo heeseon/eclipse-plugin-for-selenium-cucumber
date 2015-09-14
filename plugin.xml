@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   	<!-- Config Editor -->
+   	<extension point="org.eclipse.ui.editors">
+   		<editor
+   			id="ConfigEditor"
+            filenames="*.rb"
+   			name="Ruby merong Editor"
+   			icon="icons/sample.gif"
+   			class="org.eclipse.ui.editors.text.TextEditor"/>
+   	</extension>
+
+   	<extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            name="Selenium Cucumber"
+            id="selenium-cucumber-template">
+      </category>
+      <wizard
+            name="Selenium Cucumber Project"
+            icon="icons/sample.gif"
+            category="selenium-cucumber-template"
+            class="selenium_cucumber_template.wizards.SampleNewWizard"
+            id="selenium_cucumber_template.wizards.SampleNewWizard">
+      </wizard>
+    </extension>
+
+	<extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            objectClass="org.eclipse.core.resources.IResource"
+            id="contribution1">
+         <menu
+               label="Selenium-Cucumber Run"
+               path="additions"
+               id="menu1">
+         </menu>
+         <action
+               label="Android Application"
+               class="selenium_cucumber_template.popup.NewAction"
+               menubarPath="menu1/group1"
+               enablesFor="1"
+               id="newAction1">
+         </action>
+      </objectContribution>
+   </extension>
+ 
+</plugin>
